@@ -32,6 +32,14 @@ void setTimer2 (int duration){
 	timer2_flag = 0;
 }
 
+int timer3_counter = 0;
+int timer3_flag = 0;
+
+void setTimer3 (int duration){
+	timer3_counter = duration/TIMER_CYCLE;
+	timer3_flag = 0;
+}
+
 void timer_run(){
 	if (timer0_counter > 0){
 		timer0_counter--;
@@ -44,5 +52,9 @@ void timer_run(){
 	if (timer2_counter > 0){
 		timer2_counter--;
 		if (timer2_counter <= 0) timer2_flag = 1;
+	}
+	if (timer3_counter > 0){
+		timer3_counter--;
+		if (timer3_counter <= 0) timer3_flag = 1;
 	}
 }
