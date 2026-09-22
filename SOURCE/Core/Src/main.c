@@ -56,7 +56,7 @@ int hour = 15, minute = 8, second = 50;
 
 const int MAX_LED_MATRIX = 8;
 int index_led_matrix = 0;
-uint8_t matrix_buffer[8] = {0x00, 0xfc, 0x12, 0x11, 0x11, 0x12 ,0xfc, 0x00};
+uint8_t matrix_buffer[8] = {0xff, 0xff, 0xff, 0xff, 0xff, 0xff ,0xff, 0xff};
 /* USER CODE END PV */
 
 /* Private function prototypes -----------------------------------------------*/
@@ -110,7 +110,7 @@ int main(void)
   setTimer0(2000);
   setTimer1(1000);
   setTimer2(250);
-  setTimer3(20);
+  setTimer3(500);
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -147,10 +147,10 @@ int main(void)
 	  }
 
 	  if (timer3_flag == 1){
-		  index_led_matrix = (index_led_matrix+1)%MAX_LED_MATRIX;
+		  index_led_matrix = (index_led_matrix+MAX_LED_MATRIX-1)%MAX_LED_MATRIX;
 		  uint8_t buffer = updateLedMatrix(index_led_matrix);
 		  scanLedMatrix(buffer);
-		  setTimer3(20);
+		  setTimer3(500);
 	  }
     /* USER CODE END WHILE */
 
