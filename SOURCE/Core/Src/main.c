@@ -234,7 +234,7 @@ static void MX_GPIO_Init(void)
 }
 
 /* USER CODE BEGIN 4 */
-int counterled = 100, counterseg = 50, counterdot = 100;
+int counterled = 100, counterseg = 25, counterdot = 100;
 void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 	counterled--;
 	if (counterled <= 0){
@@ -244,7 +244,7 @@ void HAL_TIM_PeriodElapsedCallback(TIM_HandleTypeDef *htim){
 
 	counterseg--;
 	if (counterseg <= 0){
-		counterseg = 50;
+		counterseg = 25;
 		index_led = (index_led+1)%4;
 	}
 
