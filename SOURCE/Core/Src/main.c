@@ -104,6 +104,7 @@ int main(void)
   setTimer0(2000);
   setTimer1(1000);
   setTimer2(250);
+  updateClockBuffer();
   /* USER CODE END 2 */
 
   /* Infinite loop */
