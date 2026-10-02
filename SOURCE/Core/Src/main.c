@@ -110,7 +110,8 @@ int main(void)
   setTimer0(2000);
   setTimer1(1000);
   setTimer2(250);
-  setTimer3(20);
+  setTimer3(50);
+  updateClockBuffer();
   /* USER CODE END 2 */
 
   /* Infinite loop */
@@ -150,7 +151,7 @@ int main(void)
 		  index_led_matrix = (index_led_matrix+1)%MAX_LED_MATRIX;
 		  uint8_t buffer = updateLedMatrix(index_led_matrix);
 		  scanLedMatrix(buffer);
-		  setTimer3(20);
+		  setTimer3(50);
 	  }
     /* USER CODE END WHILE */
 
